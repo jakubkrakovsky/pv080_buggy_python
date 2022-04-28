@@ -4,18 +4,26 @@ import hashlib
 import subprocess
 import flask
 
-
+'''
+maybe this is documentation
+transcode the file
+'''
 def transcode_file(request, filename):
+    #some documentation
     command = 'ffmpeg -i "{source}" output_file.mpg'.format(source=file)
     subprocess.call(command, shell=True)
 
-
+    '''
+    loading yaml config
+    '''
 def load_config(filename):
     # Load a configuration file into YAML
     stream = file.open(filename, "w")
     config = yaml.load(stream)
 
-
+    '''
+    authenticate password
+    '''
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
@@ -31,7 +39,9 @@ def fetch_website(urllib_version, url):
     return r.data
 
 
-
+'''
+requesting an index from site
+'''
 @app.route("/")
 def index():
     version = flask.request.args.get("urllib_version")
